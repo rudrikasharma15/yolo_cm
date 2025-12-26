@@ -1,0 +1,14 @@
+path: C:\Users\Admin\Desktop\research\modi_final\step4_final_model\yolo_dataset
+train: train/images
+val: valid/images
+test: test/images
+nc: 8
+names:
+- aa_matra
+- i_matra
+- u_matra
+- e_matra
+- ai_matra
+- o_matra
+- au_matra
+- anusvara
