@@ -1,0 +1,59 @@
+"""FINAL CORRECT CHARACTER MAPPING - FROM MODEL ITSELF"""
+
+# This mapping is CORRECT - taken from your trained model
+# The model was trained and it knows what each class actually is!
+
+CHARACTER_NAME_MAP = {
+    0: "A",
+    1: "AA",
+    2: "I",
+    3: "II",
+    4: "U",
+    5: "UU",
+    6: "E",
+    7: "AI",
+    8: "O",
+    9: "AU",
+    10: "AN",
+    11: "AH",
+    12: "KA",
+    13: "KHA",
+    14: "GA",
+    15: "GHA",
+    16: "NGA",
+    17: "CHA",
+    18: "CHHA",
+    19: "JA",
+    20: "JHA",
+    21: "NYA",
+    22: "TA",
+    23: "THA",
+    24: "DA",
+    25: "DHA",
+    26: "NA",
+    27: "TTA",
+    28: "TTHA",
+    29: "DDA",
+    30: "DDHA",
+    31: "NNA",
+    32: "PA",
+    33: "PHA",
+    34: "BA",
+    35: "BHA",
+    36: "MA",
+    37: "YA",
+    38: "RA",
+    39: "LA",
+    40: "VA",
+    41: "SHA",
+    42: "SHHA",
+    43: "SA",
+    44: "HA",
+    45: "LLA",
+    46: "KSHA",
+}
+
+# Total classes: 47
+# Vowels found: 12
+# Consonants found: 35
+# NO DIGITS - You did not train on digits!

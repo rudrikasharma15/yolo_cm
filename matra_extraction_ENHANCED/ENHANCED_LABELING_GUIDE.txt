@@ -1,0 +1,116 @@
+
+╔══════════════════════════════════════════════════════════════════════╗
+║      ENHANCED MODI MATRA LABELING GUIDE - 8 CLASSES                 ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+TOTAL IMAGES: 610
+TOOL: LabelImg (YOLO format)
+COMMAND: labelImg C:\Users\admin\Desktop\MODI_FINAL\modi_final\matra_extraction_ENHANCED\unlabeled_matras
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8 MATRA CLASSES (ENHANCED SAMPLING)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Class 0: aa_matra        (ा)  - 100 images - aa-matra (vertical line on right)
+Class 1: i_matra         (ि)  -  50 images - i-matra (curve on left)
+Class 2: u_matra         (ु)  -  60 images - u-matra (hook below)
+Class 3: e_matra         (े)  -  60 images - e-matra (slant on top)
+Class 4: ai_matra        (ै)  -  50 images - ai-matra (double slant on top)
+Class 5: o_matra         (ो)  -  80 images - o-matra (right side curve)
+Class 6: au_matra        (ौ)  -  60 images - au-matra (double curve on right)
+Class 7: anusvara        (ं)  - 150 images - anusvara (dot on top)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRIORITY LABELING (LABEL THESE FIRST!)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔥 HIGH PRIORITY (Model struggles with these):
+   1. anusvara (150 images) - Current model has 0% detection!
+   2. aa_matra (100 images) - Current model has 11.5% detection
+   3. o_matra (80 images) - Current model has 45% detection
+
+✅ LOWER PRIORITY (Model already performs well):
+   4. Rest of the matras (i_matra, ai_matra, etc.)
+
+WHY THIS MATTERS:
+- Better labels for weak classes → Better model → Better auto-labeling in Step 3
+- You'll get more auto-labeled images in the next iteration!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CRITICAL LABELING RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. ✅ Box ONLY the matra (NOT the base character)
+   - Image shows "का" (ka + aa)  → Box only the "ा" part
+   - Image shows "कं" (kan)        → Box only the "ं" dot (ZOOM IN!)
+
+2. ✅ Draw TIGHT boxes
+   - Include all pixels of the matra stroke
+   - No extra white space
+   - For anusvara (ं), ZOOM IN and draw precise box around the dot
+
+3. ✅ Use EXACT label names
+   - aa_matra, i_matra, u_matra, e_matra, ai_matra, o_matra, au_matra, anusvara
+   - Use lowercase with underscore
+
+4. ✅ LabelImg Settings:
+   - Format: YOLO (press Ctrl+Y or Cmd+Y)
+   - Save: Ctrl+S (Cmd+S on Mac) after EACH image
+   - Next: D key
+   - Previous: A key
+   - Zoom: Scroll wheel (IMPORTANT for anusvara!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SPECIAL ATTENTION: ANUSVARA (ं)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Anusvara is the HARDEST to detect because it's TINY!
+
+TIPS:
+1. ALWAYS zoom in (scroll wheel or +/- keys)
+2. Look for the small dot/circle on top of the character
+3. Draw a SMALL, TIGHT box around JUST the dot
+4. Don't include any part of the base character
+5. Even if the dot is tiny (3-5 pixels), still label it!
+
+EXAMPLE:
+   कं  →  Box ONLY the "ं" dot on top (not the "क")
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WORKFLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RECOMMENDED ORDER:
+
+1. Start with PRIORITY classes first:
+   labelImg C:\Users\admin\Desktop\MODI_FINAL\modi_final\matra_extraction_ENHANCED\unlabeled_matras/07_anusvara/
+   labelImg C:\Users\admin\Desktop\MODI_FINAL\modi_final\matra_extraction_ENHANCED\unlabeled_matras/00_aa_matra/
+   labelImg C:\Users\admin\Desktop\MODI_FINAL\modi_final\matra_extraction_ENHANCED\unlabeled_matras/05_o_matra/
+
+2. Then do the rest:
+   labelImg C:\Users\admin\Desktop\MODI_FINAL\modi_final\matra_extraction_ENHANCED\unlabeled_matras/
+
+3. For each image:
+   - Draw box around ONLY the matra
+   - Select correct class
+   - Save (Ctrl+S)
+   - Next image (D key)
+
+4. Take breaks every 50 images!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUALITY TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ GOOD LABELS:
+- Tight boxes with minimal white space
+- All matra pixels included
+- Consistent across similar images
+
+❌ BAD LABELS:
+- Box includes base character
+- Box too large with lots of white space
+- Matra pixels cut off
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,16 @@
+{
+  "overall": {
+    "mAP@0.5": 0.9661081539478927,
+    "mAP@0.5:0.95": 0.9597658682260964,
+    "precision": 0.9441417093020716,
+    "recall": 0.9493199271012435
+  },
+  "dataset": {
+    "total_images": 32900,
+    "train_images": 22983,
+    "val_images": 4935,
+    "test_images": 4982,
+    "data_leakage": false,
+    "verified_clean": true
+  }
+}
