@@ -1,0 +1,20 @@
+# Modi Character Dataset - CLEAN (NO LEAKAGE)
+path: C:\Users\admin\Desktop\MODI_FINAL\modi_final\CLEAN_DATASET_FINAL
+train: train/images
+val: val/images
+test: test/images
+
+nc: 47
+names: ['B', 'BH', 'CH', 'CHH', 'D', 'DH', 'DHA', 'DYN', 'G', 'GH', 'H', 'JA', 'JH', 'K', 'KH', 'KSH', 'L', 'LH', 'M', 'N', 'NN', 'P', 'PH', 'R', 'S', 'SH', 'SHR', 'TA', 'TH', 'THA', 'THH', 'THHA', 'TR', 'V', 'Y', 'A', 'AA', 'AH', 'AI', 'AM', 'E', 'I', 'II', 'O', 'OO', 'OU', 'U']
+
+# Dataset info
+total_images: 47000
+train_images: 32900
+val_images: 7050
+test_images: 7050
+
+# Verification
+no_leakage: true
+digits_included: false
+vowels_only: False
+consonants_and_vowels: true

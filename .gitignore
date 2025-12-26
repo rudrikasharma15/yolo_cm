@@ -7,6 +7,5 @@ __pycache__/
 venv/
 
 # Large datasets / models
-CLEAN_DATASET_FINAL/
 
 
